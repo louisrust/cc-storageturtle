@@ -112,7 +112,9 @@ function sort()
     while collecting do
         canSuck = collectItems()
         canSort,sum = canSortAny()
-        filterItems()
+        if (sum>0) then
+            filterItems()
+        end
         if (not canSuck) then
             collecting = false
         end

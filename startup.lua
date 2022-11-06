@@ -8,7 +8,21 @@ function collectItems()
     end
 end
 
-function canSort()
+function canSortAny() -- return boolean can sort, int total number of items in inventory
+    canSort = false
+    sum = 0
+    for i=1,16 do
+        turtle.select(i)
+        sum = sum+turtle.getItemCount()
+        if (canSortSlot()) then
+            canSort = true
+        end
+    end
+    turtle.select(1)
+
+    return canSort,sum
+end
+function canSortSlot()
     item = turtle.getItemDetail()
     if (not item) then return false end
     for chestIndex=1,nChests do
@@ -24,7 +38,7 @@ function filterItems()
     for i=1,16 do
         turtle.select(i)
         itemCount = turtle.getItemCount()
-        if (itemCount>0 and (not canSort())) then
+        if (itemCount>0 and (not canSortSlot())) then
             turtle.drop()
         end
     end
@@ -43,6 +57,7 @@ function dropItems(index)
     if (layout[index]==nil) then
         return
     end
+
     turtle.turnLeft()
     for i = 1,16 do
         turtle.select(i)
@@ -79,20 +94,23 @@ function sort()
     turtle.turnRight()
     turtle.forward()
     turtle.forward()
+    
+    -- begin sorting
     for i = 1,nChests do
-        dropItems(i)
-        turtle.forward()
-        if (getCountTotal()==0) then
+        canSort,sum = canSortAny()
+        if (sum==0) then
             break
         end
+        if (canSort) then
+            dropItems(i)
+        end
+        turtle.forward()
     end
     
     -- return home
     turtle.turnLeft()
     turtle.turnLeft()
-    for i = 1,nChests+4 do
-        turtle.forward()
-    end
+    while turtle.forward() do end
     turtle.turnRight()
 end
 

@@ -117,6 +117,9 @@ function sort()
             collecting = false
         end
     end
+    if (getCountTotal()==0) then
+        return
+    end
     turtle.turnRight()
     turtle.forward()
     turtle.forward()

@@ -3,9 +3,13 @@ nChests = chestconfig.nChests
 layout = chestconfig.layout
 
 function collectItems()
+    canSuck = true
     for i = 1,16 do
-        turtle.suck()
+        if (not turtle.suck()) then
+            canSuck = false
+        end
     end
+    return canSuck
 end
 
 function itemIsInChest(index,item)
@@ -103,10 +107,14 @@ function getCountTotal()
 end
 
 function sort()
-    while (getCountTotal()==0) do
-        collectItems()
-        if (getCountTotal()>0) then
-            filterItems()
+    collecting = true
+    turtle.select(1)
+    while collecting do
+        canSuck = collectItems()
+        canSort,sum = canSortAny()
+        filterItems()
+        if (not canSuck) then
+            collecting = false
         end
     end
     turtle.turnRight()
@@ -116,8 +124,6 @@ function sort()
     -- begin sorting
     for i = 1,nChests do
         canSort,sum = canSortChest(i)
-        print("can sort",i,canSort)
-        print("sum",sum)
         if (sum==0) then
             break
         end

@@ -8,6 +8,16 @@ function collectItems()
     end
 end
 
+function itemIsInChest(index,item)
+    valid = false
+    for k,v in pairs(layout[index]) do
+        if string.match(item,v)==item then
+            valid = true
+        end
+    end
+    return valid
+end
+
 function canSortAny() -- return boolean can sort, int total number of items in inventory
     canSort = false
     sum = 0
@@ -22,11 +32,28 @@ function canSortAny() -- return boolean can sort, int total number of items in i
 
     return canSort,sum
 end
+
+function canSortChest(index)
+    canSort = false
+    sum = 0
+    for i=1,16 do
+        turtle.select(i)
+        sum = sum+turtle.getItemCount()
+        item = turtle.getItemDetail()
+        if (item and itemIsInChest(index,item.name)) then
+            canSort = true
+        end
+    end
+    turtle.select(1)
+
+    return canSort,sum
+end
+
 function canSortSlot()
     item = turtle.getItemDetail()
     if (not item) then return false end
     for chestIndex=1,nChests do
-        if hasItem(chestIndex,item.name) then
+        if itemIsInChest(chestIndex,item.name) then
             return true
         end
     end
@@ -44,15 +71,6 @@ function filterItems()
     end
     turtle.down()
 end
-function hasItem(index,item)
-    valid = false
-    for k,v in pairs(layout[index]) do
-        if string.match(item,v)==item then
-            valid = true
-        end
-    end
-    return valid
-end
 function dropItems(index)
     if (layout[index]==nil) then
         return
@@ -63,7 +81,7 @@ function dropItems(index)
         turtle.select(i)
         b = turtle.getItemDetail()
         if (b) then
-            if (hasItem(index,b.name)) then
+            if (itemIsInChest(index,b.name)) then
                 if not (turtle.drop()) then
                     turtle.up()
                     turtle.drop()
@@ -97,7 +115,7 @@ function sort()
     
     -- begin sorting
     for i = 1,nChests do
-        canSort,sum = canSortAny()
+        canSort,sum = canSortChest(i)
         if (sum==0) then
             break
         end

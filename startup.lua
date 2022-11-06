@@ -116,6 +116,8 @@ function sort()
     -- begin sorting
     for i = 1,nChests do
         canSort,sum = canSortChest(i)
+        print("can sort",i,canSort)
+        print("sum",sum)
         if (sum==0) then
             break
         end

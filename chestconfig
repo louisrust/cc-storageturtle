@@ -1,30 +1,30 @@
-nChests = 16
+nChests = 18
 
 layout = {
     --gobber
     {"gobber2:.*"},
     -- wood/building blocks
-    {"minecraft:.*log","minecraft:stick","minecraft:chest","minecraft:barrel","minecraft:.*planks","minecraft:.*fence","minecraft:torch","minecraft:bookshelf","minecraft:bowl","minecraft:composter","minecraft:jukebox","minecraft:note_block","minecraft:.*boat","minecraft:.*door","minecraft:.*slab","minecraft:.*stairs","minecraft:.*glass.*","minecraft:.*wool","minecraft:sand.*","minecraft:lantern","minecraft:.*froglight","minecraft:.*table","minecraft:.*wall","minecraft:bell","minecraft:.*carpet","minecraft:shroomlight","minecraft:.*leaves","minecraft:.*concrete.*","minecraft:book","minecraft:obsidian","minecraft:crying_obsidian","minecraft:sponge","minecraft:.*sign","minecraft:lectern","minecraft:cauldron","minecraft:stone_bricks","minecraft:cracked_stone_bricks","minecraft:.*bed","minecraft:brewing_stand","minecraft:quartz_block","minecraft:.*candle","minecraft:flower_pot","minecraft:ladder","minecraft:jack_o_lantern"},
+    {"minecraft:.*log","minecraft:stick","minecraft:chest","minecraft:barrel","minecraft:.*planks","minecraft:.*fence","minecraft:torch","minecraft:bookshelf","minecraft:bowl","minecraft:composter","minecraft:jukebox","minecraft:note_block","minecraft:.*boat","minecraft:.*door","minecraft:.*slab","minecraft:.*stairs","minecraft:.*glass.*","minecraft:.*wool","minecraft:sand.*","minecraft:lantern","minecraft:.*froglight","minecraft:.*table","minecraft:.*wall","minecraft:bell","minecraft:.*carpet","minecraft:shroomlight","minecraft:.*leaves","minecraft:.*concrete.*","minecraft:obsidian","minecraft:crying_obsidian","minecraft:sponge","minecraft:.*sign","minecraft:lectern","minecraft:cauldron","minecraft:stone_bricks","minecraft:cracked_stone_bricks","minecraft:.*bed","minecraft:brewing_stand","minecraft:quartz_block","minecraft:.*candle","minecraft:flower_pot","minecraft:ladder","minecraft:jack_o_lantern","minecraft:furnace"},
     -- deepslate
     {"minecraft:.*deepslate.*"},
     -- ores/ingots/nuggets/blocks
-    {"minecraft:raw.*","minecraft:.*ingot","minecraft:emerald","minecraft:diamond","minecraft:redstone","minecraft:.*nugget",".*lapis.*","minecraft:coal","minecraft:.*ore","minecraft:quartz","minecraft:ancient_debris","minecraft:netherite_scrap","minecraft:coal_block","minecraft:iron_block","minecraft:gold_block","minecraft:glowstone_dust","minecraft:amethyst.*","minecraft:redstone_block"},
+    {"minecraft:raw.*","minecraft:.*ingot","minecraft:emerald","minecraft:diamond","minecraft:redstone","minecraft:.*nugget",".*lapis.*","minecraft:coal","minecraft:.*ore","minecraft:quartz","minecraft:ancient_debris","minecraft:netherite_scrap","minecraft:coal_block","minecraft:iron_block","minecraft:gold_block","minecraft:glowstone_dust","minecraft:amethyst.*","minecraft:redstone_block","minecraft:copper_block","minecraft:diamond_block"},
     -- moss
     {".*moss.*","minecraft:.*dripleaf","minecraft:.*azalea"},
     -- clay
     {"minecraft:clay.*"},
     -- natural stone
-    {"minecraft:cobblestone","minecraft:.*stone","minecraft:.*andesite","minecraft:.*granite","minecraft:.*diorite","minecraft:tuff","minecraft:gravel","minecraft:flint","minecraft:.*basalt"},
+    {"minecraft:cobblestone","minecraft:.*stone","minecraft:.*andesite","minecraft:.*granite","minecraft:.*diorite","minecraft:tuff","minecraft:gravel","minecraft:flint","minecraft:.*basalt","minecraft:.*blackstone.*"},
     -- tools
     {"minecraft:.*axe","minecraft:.*sword","minecraft:.*hoe","minecraft:.*shovel","minecraft:.*leggings","minecraft:.*chestplate","minecraft:.*helmet","minecraft:.*boots","minecraft:.*bow","minecraft:saddle","minecraft:.*horse_armor","minecraft:.*bucket","minecraft:compass","minecraft:flint_and_steel","minecraft:name_tag","minecraft:lead","minecraft:spyglass","minecraft:elytra","minecraft:shears","minecraft:.*shulker_box","minecraft:music_disc.*","computercraft:.*","minecraft:enchanted_book","minecraft:shield","minecraft:goat_horn","dankstorage:.*","comforts:.*","minecraft:.*banner_pattern","minecraft:fishing_rod"},
     -- nether
     {"minecraft:netherrack","minecraft:magma.*","minecraft:nether.*","minecraft:crimson.*","minecraft:warped.*","minecraft:soul.*","minecraft:weeping_vines","minecraft:twisting_vines","minecraft:fire_charge"},
     -- mob drops
-    {"minecraft:string","minecraft:rotten_flesh","minecraft:spider_eye","minecraft:bone","minecraft:.*arrow","minecraft:slime_ball","minecraft:ender_pearl","minecraft:feather","minecraft:gunpowder","minecraft:leather","minecraft:.*ink_sac","minecraft:bone_meal","minecraft:blaze_rod","minecraft:blaze_powder","minecraft:nautilus_shell","minecraft:egg","minecraft:prismarine_crystals","minecraft:.*membrane","minecraft:ender_eye","minecraft:dragon_egg","minecraft:dragon_breath","minecraft:.*skull","minecraft:.*head","minecraft:ghast_tear","minecraft:shulker_shell","minecraft:wither_rose"},
+    {"minecraft:string","minecraft:rotten_flesh","minecraft:spider_eye","minecraft:bone","minecraft:.*arrow","minecraft:slime_ball","minecraft:ender_pearl","minecraft:feather","minecraft:gunpowder","minecraft:leather","minecraft:.*ink_sac","minecraft:bone_meal","minecraft:blaze_rod","minecraft:blaze_powder","minecraft:nautilus_shell","minecraft:egg","minecraft:prismarine_crystals","minecraft:.*membrane","minecraft:ender_eye","minecraft:dragon_egg","minecraft:dragon_breath","minecraft:.*skull","minecraft:.*head","minecraft:ghast_tear","minecraft:shulker_shell","minecraft:wither_rose","minecraft:shulker_shell"},
     -- food
-    {"minecraft:carrot","minecraft:.*potato","minecraft:pumpkin_pie","minecraft:bread","minecraft:.*fish","minecraft:.*cod","minecraft.*apple","minecraft:.*salmon","minecraft:cookie","minecraft:.*beef","minecraft:.*mutton","minecraft:sweet_berries","minecraft:beetroot","minecraft:.*chicken","minecraft:.*porkchop","minecraft:.*rabbit"},
-    -- farming items
-    {"minecraft:.*mushroom","minecraft:sugar_cane","minecraft:cactus","minecraft:.*seeds","minecraft:cocoa_beans","minecraft:glow_berries","minecraft:wheat","minecraft:.*kelp","minecraft:sea_pickle","minecraft:pumpkin","minecraft:.*sapling","minecraft:.*orchid","minecraft:.*dye","minecraft:lily.*","minecraft:hay_block","minecraft:poppy","minecraft:bamboo"},
+    {"minecraft:.*carrot","minecraft:.*potato","minecraft:pumpkin_pie","minecraft:bread","minecraft:.*fish","minecraft:.*cod","minecraft.*apple","minecraft:.*salmon","minecraft:cookie","minecraft:.*beef","minecraft:.*mutton","minecraft:sweet_berries","minecraft:beetroot","minecraft:.*chicken","minecraft:.*porkchop","minecraft:.*rabbit"},
+    -- farming items/nature
+    {"minecraft:.*mushroom","minecraft:sugar_cane","minecraft:cactus","minecraft:.*seeds","minecraft:cocoa_beans","minecraft:glow_berries","minecraft:wheat","minecraft:.*kelp","minecraft:sea_pickle","minecraft:pumpkin","minecraft:.*sapling","minecraft:.*orchid","minecraft:.*dye","minecraft:lily.*","minecraft:hay_block","minecraft:poppy","minecraft:bamboo","minecraft:.*leaves","minecraft:.*roots"},
     -- end
     {"minecraft:chorus.*","minecraft:.*purpur.*"},
     -- potions
@@ -32,6 +32,10 @@ layout = {
     -- dirt/grass
     {"minecraft:dirt","minecraft:grass_block","minecraft:podzol","minecraft:mud"},
     -- redstone
-	{"minecraft:redstone_torch","minecraft:repeater","minecraft:comparator","minecraft:redstone_lamp","minecraft:hopper","minecraft:dispenser","minecraft:dropper","minecraft:tripwire_hook","minecraft:trapped_chest","minecraft:tnt","minecraft:.*minecart","minecraft:.*rail","minecraft:.*button","minecraft:.*piston"}
+	{"minecraft:redstone_torch","minecraft:repeater","minecraft:comparator","minecraft:redstone_lamp","minecraft:hopper","minecraft:dispenser","minecraft:dropper","minecraft:tripwire_hook","minecraft:trapped_chest","minecraft:tnt","minecraft:.*minecart","minecraft:.*rail","minecraft:.*button","minecraft:.*piston"},
+    -- terracotta
+    {"minecraft:terracotta"},
+    -- misc
+    {"minecraft:paper","minecraft:book","minecraft:.*banner","minecraft:suspicious_stew","minecraft:.*banner_pattern","minecraft:item_frame","minecraft:painting","minecraft:heart_of_the_sea"}
 }
 

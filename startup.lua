@@ -165,9 +165,7 @@ function sort()
         if (not itemsRemaining) then
             break
         end
-        if (not i==nChests) then
-            turtle.forward()
-        end
+        turtle.forward()
     end
     
     -- return home

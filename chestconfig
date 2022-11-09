@@ -4,7 +4,7 @@ layout = {
     --gobber
     {"gobber2:.*"},
     -- wood/building blocks
-    {"minecraft:.*log","minecraft:stick","minecraft:chest","minecraft:barrel","minecraft:.*planks","minecraft:.*fence","minecraft:torch","minecraft:bookshelf","minecraft:bowl","minecraft:composter","minecraft:jukebox","minecraft:note_block","minecraft:.*boat","minecraft:.*door","minecraft:.*slab","minecraft:.*stairs","minecraft:.*glass.*","minecraft:.*wool","minecraft:sand.*","minecraft:lantern","minecraft:.*froglight","minecraft:.*table","minecraft:.*wall","minecraft:bell","minecraft:.*carpet","minecraft:shroomlight","minecraft:.*leaves","minecraft:.*concrete.*","minecraft:obsidian","minecraft:crying_obsidian","minecraft:sponge","minecraft:.*sign","minecraft:lectern","minecraft:cauldron","minecraft:stone_bricks","minecraft:cracked_stone_bricks","minecraft:.*bed","minecraft:brewing_stand","minecraft:quartz_block","minecraft:.*candle","minecraft:flower_pot","minecraft:ladder","minecraft:jack_o_lantern","minecraft:furnace","minecraft:prismarine","minecraft:prismarine_bricks","minecraft:wet_sponge"},
+    {"minecraft:.*log","minecraft:stick","minecraft:chest","minecraft:barrel","minecraft:.*planks","minecraft:.*fence","minecraft:torch","minecraft:bookshelf","minecraft:bowl","minecraft:composter","minecraft:jukebox","minecraft:note_block","minecraft:.*boat","minecraft:.*door","minecraft:.*slab","minecraft:.*stairs","minecraft:.*glass.*","minecraft:.*wool","minecraft:sand.*","minecraft:lantern","minecraft:.*froglight","minecraft:.*table","minecraft:.*wall","minecraft:bell","minecraft:.*carpet","minecraft:shroomlight","minecraft:.*leaves","minecraft:.*concrete.*","minecraft:obsidian","minecraft:crying_obsidian","minecraft:sponge","minecraft:.*sign","minecraft:lectern","minecraft:cauldron","minecraft:stone_bricks","minecraft:cracked_stone_bricks","minecraft:.*bed","minecraft:brewing_stand","minecraft:quartz_block","minecraft:.*candle","minecraft:flower_pot","minecraft:ladder","minecraft:jack_o_lantern","minecraft:furnace","minecraft:prismarine","minecraft:prismarine_bricks","minecraft:wet_sponge","minecraft:red_sand"},
     -- deepslate
     {"minecraft:.*deepslate.*"},
     -- ores/ingots/nuggets/blocks
@@ -34,7 +34,7 @@ layout = {
     -- redstone
 	{"minecraft:redstone_torch","minecraft:repeater","minecraft:comparator","minecraft:redstone_lamp","minecraft:hopper","minecraft:dispenser","minecraft:dropper","minecraft:tripwire_hook","minecraft:trapped_chest","minecraft:tnt","minecraft:.*minecart","minecraft:.*rail","minecraft:.*button","minecraft:.*piston"},
     -- terracotta
-    {"minecraft:terracotta"},
+    {"minecraft:.*terracotta"},
     -- misc
     {"minecraft:paper","minecraft:book","minecraft:.*banner","minecraft:suspicious_stew","minecraft:.*banner_pattern","minecraft:item_frame","minecraft:painting","minecraft:heart_of_the_sea","minecraft:experience_bottle"},
     -- ancient

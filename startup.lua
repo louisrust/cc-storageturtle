@@ -2,6 +2,9 @@ os.loadAPI("chestconfig")
 nChests = chestconfig.nChests
 layout = chestconfig.layout
 
+inventoryTemp = {}
+useThreeChests = false
+
 function collectItems()
     canSuck = true
     for i = 1,16 do
@@ -52,6 +55,17 @@ function canSortChest(index)
 
     return canSort,sum
 end
+function canSortChestTemp(index)
+    canSort = false
+    for i=1,16 do
+        item = inventoryTemp[i]
+        if (item and itemIsInChest(index,item)) then
+            canSort = true
+        end
+    end
+
+    return canSort
+end
 
 function canSortSlot()
     item = turtle.getItemDetail()
@@ -88,22 +102,19 @@ function dropItems(index)
             if (itemIsInChest(index,b.name)) then
                 if not (turtle.drop()) then
                     turtle.up()
-                    turtle.drop()
+                    if (useThreeChests and (not turtle.drop())) then
+                        turtle.up()
+                        turtle.drop()
+                        turtle.down()
+                    end
                     turtle.down()
                 end
+
+                inventoryTemp[i] = nil
             end
-        end        
+        end
     end
     turtle.turnRight()
-end
-
-function getCountTotal()
-    sum = 0
-    for i = 1,16 do
-        turtle.select(i)
-        sum = sum+turtle.getItemCount()
-    end
-    return sum
 end
 
 function sort()
@@ -119,23 +130,44 @@ function sort()
             collecting = false
         end
     end
-    if (getCountTotal()==0) then
+
+    canSort,sum = canSortAny()
+    if (sum==0) then
         return
     end
     turtle.turnRight()
     turtle.forward()
     turtle.forward()
+    -- create temp inventory
+    inventoryTemp = {}
+    for i=1,16 do
+        turtle.select(i)
+        b = turtle.getItemDetail()
+        if (b and b.name) then
+            inventoryTemp[i] = b.name
+        else
+            inventoryTemp[i] = nil
+        end
+    end
     
     -- begin sorting
     for i = 1,nChests do
-        canSort,sum = canSortChest(i)
-        if (sum==0) then
-            break
-        end
+        canSort = canSortChestTemp(i)
         if (canSort) then
             dropItems(i)
         end
-        turtle.forward()
+        itemsRemaining = false
+        for i=1,16 do
+            if (inventoryTemp[i]) then
+                itemsRemaining = true
+            end
+        end
+        if (not itemsRemaining) then
+            break
+        end
+        if (not i==nChests) then
+            turtle.forward()
+        end
     end
     
     -- return home

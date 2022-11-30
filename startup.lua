@@ -29,9 +29,8 @@ function canSortAny() -- return boolean can sort, int total number of items in i
     canSort = false
     sum = 0
     for i=1,16 do
-        turtle.select(i)
-        sum = sum+turtle.getItemCount()
-        if (canSortSlot()) then
+        sum = sum+turtle.getItemCount(i)
+        if (canSortSlot(i)) then
             canSort = true
         end
     end
@@ -44,9 +43,8 @@ function canSortChest(index)
     canSort = false
     sum = 0
     for i=1,16 do
-        turtle.select(i)
-        sum = sum+turtle.getItemCount()
-        item = turtle.getItemDetail()
+        sum = sum+turtle.getItemCount(i)
+        item = turtle.getItemDetail(i)
         if (item and itemIsInChest(index,item.name)) then
             canSort = true
         end
@@ -67,8 +65,8 @@ function canSortChestTemp(index)
     return canSort
 end
 
-function canSortSlot()
-    item = turtle.getItemDetail()
+function canSortSlot(i)
+    item = turtle.getItemDetail(i)
     if (not item) then return false end
     for chestIndex=1,nChests do
         if itemIsInChest(chestIndex,item.name) then
@@ -81,9 +79,9 @@ end
 function filterItems()
     turtle.up()
     for i=1,16 do
-        turtle.select(i)
-        itemCount = turtle.getItemCount()
-        if (itemCount>0 and (not canSortSlot())) then
+        itemCount = turtle.getItemCount(i)
+        if (itemCount>0 and (not canSortSlot(i))) then
+            turtle.select(i)
             turtle.drop()
         end
     end
@@ -96,16 +94,18 @@ function dropItems(index)
 
     turtle.turnLeft()
     for i = 1,16 do
-        turtle.select(i)
-        b = turtle.getItemDetail()
+        b = turtle.getItemDetail(i)
         if (b) then
+            turtle.select(i)
             if (itemIsInChest(index,b.name)) then
                 if not (turtle.drop()) then
                     turtle.up()
-                    if (useThreeChests and (not turtle.drop())) then
-                        turtle.up()
-                        turtle.drop()
-                        turtle.down()
+                    if ((not turtle.drop())) then
+                        if (useThreeChests) then
+                            turtle.up()
+                            turtle.drop()
+                            turtle.down()
+                        end
                     end
                     turtle.down()
                 end
@@ -141,8 +141,7 @@ function sort()
     -- create temp inventory
     inventoryTemp = {}
     for i=1,16 do
-        turtle.select(i)
-        b = turtle.getItemDetail()
+        b = turtle.getItemDetail(i)
         if (b and b.name) then
             inventoryTemp[i] = b.name
         else
@@ -165,7 +164,9 @@ function sort()
         if (not itemsRemaining) then
             break
         end
-        turtle.forward()
+        if (i<nChests) then
+            turtle.forward()
+        end
     end
     
     -- return home
